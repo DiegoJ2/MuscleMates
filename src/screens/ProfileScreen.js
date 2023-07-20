@@ -18,7 +18,7 @@ export default function ProfileScreen() {
             alignItems: "center",
             height: 100,
             width: 100,
-            left: "38.99%",
+            left: ".7%",
             top: "50%",
             borderRadius: "100%",
           }}
@@ -74,7 +74,7 @@ export default function ProfileScreen() {
             alignItems: "center",
             height: 100,
             width: 100,
-            left: "%",
+            right: "38%",
             top: "250%",
             borderRadius: "100%",
           }}
@@ -88,8 +88,8 @@ export default function ProfileScreen() {
             alignItems: "center",
             height: 100,
             width: 100,
-            left: "38.99%",
-            top: "150%",
+            left: ".7%",
+            top: "140.9%",
             borderRadius: "100%",
           }}
         />
@@ -102,8 +102,8 @@ export default function ProfileScreen() {
             alignItems: "center",
             height: 100,
             width: 100,
-            left: "75%",
-            top: "50%",
+            left: "38.99%",
+            top: "22%",
             borderRadius: "100%",
           }}
         />
@@ -111,8 +111,8 @@ export default function ProfileScreen() {
 
       <Text
         style={{
-          textAlign: "left",
-          top: "7.8%",
+          right: "38.99%",
+          top: "2.7%",
         }}
       >
         Bench 225 x10
@@ -121,7 +121,7 @@ export default function ProfileScreen() {
       <Text
         style={{
           textAlign: "center",
-          top: "5%",
+          top: ".3%",
         }}
       >
         You tried X999
@@ -129,8 +129,8 @@ export default function ProfileScreen() {
 
       <Text
         style={{
-          textAlign: "right",
-          top: "2.9%",
+          left:'38%',
+          bottom: "2%",
         }}
       >
         Squat 315 X1
@@ -141,8 +141,13 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    alignContent: "center",
+    backgroundColor: "#5A5A5A", 
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  profile: {
+    alignItems: "center", 
+    marginVertical: 10, 
   },
   basic: {
     top: "15%",
