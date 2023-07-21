@@ -7,6 +7,7 @@ export default function ProfileScreen() {
         style={{
           textAlign: "center",
           fontSize: 25,
+          bottom:'25%'
         }}
       >
         Diego Jimenez
@@ -19,7 +20,7 @@ export default function ProfileScreen() {
             height: 100,
             width: 100,
             left: ".7%",
-            top: "50%",
+            top: "-190%",
             borderRadius: "100%",
           }}
         />
@@ -28,7 +29,7 @@ export default function ProfileScreen() {
         <Text
           style={{
             textAlign: "center",
-            top: "75%",
+            top: "-255%",
           }}
         >
           Age:16
@@ -36,7 +37,7 @@ export default function ProfileScreen() {
         <Text
           style={{
             textAlign: "center",
-            top: "75%",
+            top: "-255%",
           }}
         >
           Pronous: He/Him
@@ -44,7 +45,7 @@ export default function ProfileScreen() {
         <Text
           style={{
             textAlign: "center",
-            top: "75%",
+            top: "-255%",
           }}
         >
           Experience: 8 years
@@ -52,7 +53,7 @@ export default function ProfileScreen() {
         <Text
           style={{
             textAlign: "center",
-            top: "75%",
+            top: "-255%",
           }}
         >
           Max Bench: 225 10x Deadlift: 415 7x
@@ -61,81 +62,14 @@ export default function ProfileScreen() {
       <Text
         style={{
           textAlign: "center",
-          top: "15%",
+          top: "-15%",
+          marginLeft:10,
+          marginRitght:10,
         }}
       >
-        Bio place holder
-      </Text>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet mollis magna. Praesent et velit commodo, ullamcorper erat non, gravida nunc. Cras vulputate orci enim, vel mollis nisi aliquam quis. Maecenas euismod congue magna, non lacinia arcu volutpat a. Nullam nec dignissim augue. Pellentesque fermentum, erat eu tempor dignissim, risus velit tempus velit, a porttitor nulla felis sed magna.      </Text>
 
-      <View>
-        <Image
-          source={require("../../assets/download.jpeg")}
-          style={{
-            alignItems: "center",
-            height: 100,
-            width: 100,
-            right: "38%",
-            top: "250%",
-            borderRadius: "100%",
-          }}
-        />
-      </View>
-
-      <View style={styles.profile}>
-        <Image
-          source={require("../../assets/images.jpeg")}
-          style={{
-            alignItems: "center",
-            height: 100,
-            width: 100,
-            left: ".7%",
-            top: "140.9%",
-            borderRadius: "100%",
-          }}
-        />
-      </View>
-
-      <View style={styles.profile}>
-        <Image
-          source={require("../../assets/goldstar.jpeg")}
-          style={{
-            alignItems: "center",
-            height: 100,
-            width: 100,
-            left: "38.99%",
-            top: "22%",
-            borderRadius: "100%",
-          }}
-        />
-      </View>
-
-      <Text
-        style={{
-          right: "38.99%",
-          top: "2.7%",
-        }}
-      >
-        Bench 225 x10
-      </Text>
-
-      <Text
-        style={{
-          textAlign: "center",
-          top: ".3%",
-        }}
-      >
-        You tried X999
-      </Text>
-
-      <Text
-        style={{
-          left:'38%',
-          bottom: "2%",
-        }}
-      >
-        Squat 315 X1
-      </Text>
-    </View>
+</View>
   );
 }
 const styles = StyleSheet.create({
@@ -144,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#5A5A5A", 
     alignItems: "center",
     justifyContent: "center",
-  },
+    },
   profile: {
     alignItems: "center", 
     marginVertical: 10, 

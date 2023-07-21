@@ -35,9 +35,8 @@ export default function ChatScreen() {
           consectetur adipiscing elit.
         </Text>
       </View>
-      <View>
+      <View  style={styles.profile2}>
         <Image
-          style={styles.profile2}
           source={require("../../assets/Me.png")}
           style={{
             height: 50,
@@ -56,6 +55,43 @@ export default function ChatScreen() {
       </View>
       <View style={styles.textbar}></View>
       <Triangle />
+      <View style={styles.white2Rectangle}>
+      <Text style={styles.textInRectangle}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+          tincidunt aliquet ante non vulputate. 
+        </Text>
+        </View>
+        <View style={styles.profile3}>
+        <Image
+          source={require("../../assets/dempsey.jpeg")}
+          style={{
+            height: 50,
+            width: 50,
+            left: ".7%",
+            top: "-40%",
+            borderRadius: 50,
+          }}
+        />
+      </View>
+
+      <View style={styles.green2Rectangle}>
+        <Text style={styles.textInRectangle}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        </Text>
+      </View>
+
+      <View  style={styles.profile2}>
+        <Image
+          source={require("../../assets/Me.png")}
+          style={{
+            height: 50,
+            width: 50,
+            left: "89%",
+            top: "-3%",
+            borderRadius: 50,
+          }}
+        />
+      </View>
 
     </View>
   );
@@ -131,5 +167,26 @@ top: '155%',
     top:"61%", 
     right: 15, 
     transform: [{ rotate: "60deg" }], 
+  },
+  white2Rectangle: {
+    width: "80%",
+    backgroundColor: "white",
+    position: "absolute",
+    top: "40%",
+    right: "10%",
+    borderRadius: 10,
+    padding: 10,
+  },
+  profile3: {
+    position: "relative",
+  },
+  green2Rectangle: {
+    width: "80%",
+    backgroundColor: "#00ff00",
+    position: "absolute",
+    top: "50%",
+    right: "5%",
+    borderRadius: 10,
+    padding: 10,
   },
 });

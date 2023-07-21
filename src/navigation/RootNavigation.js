@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useRoute } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome"; 
 
@@ -11,13 +11,16 @@ import CompScreen from "../screens/CompScreen";
 const Tab = createBottomTabNavigator();
 
 export default function RootNavigation() {
-  const getTabBarIcon = (name) => ({ color, size, focused }) => (
-    <Icon name={name} color={focused ? "#FFFFFF" : "#00ff00"} size={size} />
-  );
+  const getTabBarIcon = (name) => ({ color, size }) => {
+    const route = useRoute();
+    const iconColor = route.name === "Competitve" ? "red" : "#00ff00";
+    return <Icon name={name} color={iconColor} size={size} />;
+  };
 
   return (
     <NavigationContainer>
       <Tab.Navigator
+        screenOptions={{tabBarActiveTintColor: "#00ff00"}}
         tabBarOptions={{
           style: {
             position: "absolute",
@@ -29,11 +32,11 @@ export default function RootNavigation() {
           },
           showLabel: false,
           tabStyle: {
-            backgroundColor: "#808080", 
+            backgroundColor: "#645F5F", 
             borderTopColor: "#645F5F", 
             borderTopWidth: 2, 
-          },
-          activeTintColor: "#00ff00", 
+            activeTintColor: "#00ff00",
+          }, 
         }}
       >
         <Tab.Screen
