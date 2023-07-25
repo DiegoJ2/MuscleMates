@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, StatusBar, Image } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, StatusBar, Image, Text } from 'react-native';
+import { Data } from '../../assets/data/DATA';
 
 const DATA = [
   {
@@ -24,9 +25,24 @@ const DATA = [
   },
 ];
 
-const Item = ({ imageSource }) => (
-  <View style={styles.item}>
-    <Image source={imageSource} style={styles.image} />
+const Item = ({data}) => (
+  <View style={styles.home}>
+    <Text>{data.name}</Text>
+    <Image source={data.pfp} 
+    style={{
+      height: 340,
+      width: 275,
+      borderRadius: '50%',
+      padding:100,
+      left:'21%',
+      border:''
+    }}
+    />
+    <Text>{data.age}</Text>
+    <Text>{data.pronouns}</Text>
+    <Text>{data.experience}</Text>
+    <Text>{data.maxBench}</Text>
+    <Text>{data.deadLift}</Text>
   </View>
 );
 
@@ -34,8 +50,8 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={DATA}
-        renderItem={({ item }) => <Item imageSource={item.imageSource} />}
+        data={Data}
+        renderItem={({ item }) => <Item data={item}/>}
         keyExtractor={(item) => item.id}
       />
     </SafeAreaView>
@@ -46,7 +62,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    backgroundColor:'#535050'
   },
+  home: {
+  flex: 1,
+    color: 'white',
+    },
   item: {
     backgroundColor: '#ffffff',
     padding: 0,
@@ -58,4 +79,5 @@ const styles = StyleSheet.create({
     height: 800, 
     width: '100%',
   },
+
 });

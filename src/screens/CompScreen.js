@@ -14,7 +14,7 @@ export default function CompScreen() {
             height: 100,
             width: 100,
             left: ".7%",
-            top: "-30%",
+            top: "-10%",
             borderRadius: "100%",
           }}
         />
@@ -82,7 +82,7 @@ export default function CompScreen() {
       <Text style={styles.textInwRectangle}>
           V.S.
         </Text>
-        </View>
+
         <View>
 
         <Image    source={require("../../assets/Me.png")}
@@ -91,12 +91,28 @@ export default function CompScreen() {
             height: 50,
             width: 50,
             left: ".7%",
-            top: "-%",
+            top: "-39%",
             borderRadius: "100%",
           }}
         />
 
         </View>
+
+        <View>
+        <Image
+          source={require("../../assets/dempsey.jpeg")}
+          style={{
+            height: 50,
+            width: 50,
+            left: "85%",
+            top: "-140%",
+            borderRadius: 50,
+          }}
+        />
+      </View>
+
+        </View>
+
 
 
     </View>
@@ -140,6 +156,7 @@ const styles = StyleSheet.create({
   },
   white2Rectangle: {
     width: "80%",
+    height:"10%",
     backgroundColor: "black",
     position: "absolute",
     top: "60%",
@@ -151,6 +168,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign:'center',
     justifyContent:'center',
+    top:'35%',
     fontSize:25,
   },
 });
