@@ -14,7 +14,7 @@ export default function ProfileScreen() {
       </Text>
       <View style={styles.profile}>
         <Image
-          source={require("../../assets/Me.png")}
+          source={require("../assets/Me.png")}
           style={{
             alignItems: "center",
             height: 100,

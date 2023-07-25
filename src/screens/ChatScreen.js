@@ -18,7 +18,7 @@ export default function ChatScreen() {
       </View>
       <View style={styles.profile}>
         <Image
-          source={require("../../assets/dempsey.jpeg")}
+          source={require("../assets/dempsey.jpeg")}
           style={{
             height: 50,
             width: 50,
@@ -37,7 +37,7 @@ export default function ChatScreen() {
       </View>
       <View  style={styles.profile2}>
         <Image
-          source={require("../../assets/Me.png")}
+          source={require("../assets/Me.png")}
           style={{
             height: 50,
             width: 50,
@@ -51,7 +51,7 @@ export default function ChatScreen() {
       <View>
         <Image
          style={styles.akeyboard}
-        source={require("../../assets/IMG_3369.jpeg")}/>
+        source={require("../assets/IMG_3369.jpeg")}/>
       </View>
       <View style={styles.textbar}></View>
       <Triangle />
@@ -63,7 +63,7 @@ export default function ChatScreen() {
         </View>
         <View style={styles.profile3}>
         <Image
-          source={require("../../assets/dempsey.jpeg")}
+          source={require("../assets/dempsey.jpeg")}
           style={{
             height: 50,
             width: 50,
@@ -82,7 +82,7 @@ export default function ChatScreen() {
 
       <View  style={styles.profile2}>
         <Image
-          source={require("../../assets/Me.png")}
+          source={require("../assets/Me.png")}
           style={{
             height: 50,
             width: 50,

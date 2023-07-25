@@ -8,7 +8,7 @@ export default function CompScreen() {
       </View>
       <View style={styles.profile}>
         <Image
-          source={require("../../assets/Me.png")}
+          source={require("../assets/Me.png")}
           style={{
             alignItems: "center",
             height: 100,
@@ -21,7 +21,7 @@ export default function CompScreen() {
       </View>
       <View style={styles.profile}>
         <Image
-          source={require("../../assets/download.jpeg")}
+          source={require("../assets/download.jpeg")}
           style={{
             alignItems: "center",
             height: 100,
@@ -34,7 +34,7 @@ export default function CompScreen() {
       </View>
       <View style={styles.profile}>
         <Image
-          source={require("../../assets/images.jpeg")}
+          source={require("../assets/images.jpeg")}
           style={{
             alignItems: "center",
             height: 100,
@@ -47,7 +47,7 @@ export default function CompScreen() {
       </View>
       <View style={styles.profile}>
         <Image
-          source={require("../../assets/goldstar.jpeg")}
+          source={require("../assets/goldstar.jpeg")}
           style={styles.jfkd}
         />
       </View>
@@ -85,7 +85,7 @@ export default function CompScreen() {
 
         <View>
 
-        <Image    source={require("../../assets/Me.png")}
+        <Image    source={require("../assets/Me.png")}
           style={{
             alignItems: "center",
             height: 50,
@@ -100,7 +100,7 @@ export default function CompScreen() {
 
         <View>
         <Image
-          source={require("../../assets/dempsey.jpeg")}
+          source={require("../assets/dempsey.jpeg")}
           style={{
             height: 50,
             width: 50,

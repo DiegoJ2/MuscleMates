@@ -2,7 +2,7 @@ const Data = [
  {
     "id": 0,
     "name": "Tank Dempsy",
-    "pfp": require('../../assets/dempsey.jpeg'),
+    "pfp": require('../dempsey.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
     "experience": "6 years",
@@ -13,7 +13,7 @@ const Data = [
  {
     "id": 1,
     "name": "Takeo ",
-    "pfp": require('../../assets/Takeo.webp'),
+    "pfp": require('../Takeo.webp'),
     "age": 13,
     "pronouns": "He/Him",
     "experience": "6 years",
@@ -23,7 +23,7 @@ const Data = [
  {
     "id": 2,
     "name": "Takeo ",
-    "pfp": require('../../assets/Nikolai.jpeg'),
+    "pfp": require('../Nikolai.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
     "experience": "6 years",
@@ -33,7 +33,7 @@ const Data = [
  {
     "id": 3,
     "name": "Takeo ",
-    "pfp": require('../../assets/Richtofen.jpeg'),
+    "pfp": require('../Richtofen.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
     "experience": "6 years",
@@ -43,7 +43,7 @@ const Data = [
  {
     "id": 4,
     "name": "Takeo ",
-    "pfp": require('../../assets/Marlton.jpeg'),
+    "pfp": require('../Marlton.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
     "experience": "6 years",
