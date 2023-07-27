@@ -1,123 +1,71 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { Text, View, StyleSheet, Image, TouchableOpacity, Button } from "react-native";
+import { SelectList } from "react-native-dropdown-select-list";
+import Modal from "react-native-modal";
 
-export default function CompScreen() {
+
+const CompScreen = () => {
+  const [selectedFirst, setSelectedFirst] = useState(""); 
+  const [selectedSecond, setSelectedSecond] = useState(""); 
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+const handleModal = () => setIsModalVisible(() => !isModalVisible);
+
+  const data = [
+    { key: "1", value: "Iron" },
+    { key: "2", value: "Bronze" },
+    { key: "3", value: "Silver" },
+    { key: "4", value: "Gold" },
+    { key: "5", value: "Platinum" },
+    { key: "6", value: "Diamond" },
+    { key: "7", value: "Master" },
+  ];
+
+  const Data = [
+    { key: "1", value: "Arms" },
+    { key: "2", value: "Legs" },
+    { key: "3", value: "Back" },
+    { key: "4", value: "Squat" },
+    { key: "5", value: "Chest" },
+    { key: "6", value: "Shoulders" },
+    { key: "7", value: "Full Body" },
+  ];
+
   return (
     <View style={styles.container}>
-      <View style={styles.redRectangle}>
-        <Text style={styles.textInRectangle}>COMPETITVE</Text>
-      </View>
-      <View style={styles.profile}>
-        <Image
-          source={require("../assets/Me.png")}
-          style={{
-            alignItems: "center",
-            height: 100,
-            width: 100,
-            left: ".7%",
-            top: "-10%",
-            borderRadius: "100%",
-          }}
-        />
-      </View>
-      <View style={styles.profile}>
-        <Image
-          source={require("../assets/download.jpeg")}
-          style={{
-            alignItems: "center",
-            height: 100,
-            width: 100,
-            right: "38%",
-            top: "20%",
-            borderRadius: "100%",
-          }}
-        />
-      </View>
-      <View style={styles.profile}>
-        <Image
-          source={require("../assets/images.jpeg")}
-          style={{
-            alignItems: "center",
-            height: 100,
-            width: 100,
-            left: ".7%",
-            top: "-99%",
-            borderRadius: "100%",
-          }}
-        />
-      </View>
-      <View style={styles.profile}>
-        <Image
-          source={require("../assets/goldstar.jpeg")}
-          style={styles.jfkd}
-        />
-      </View>
-      <Text
-        style={{
-          right: "38.99%",
-          top: "-25%",
-        }}
-      >
-        Bench 225
-      </Text>
-
-      <Text
-        style={{
-          textAlign: "center",
-          top: "-27%",
-        }}
-      >
-        You tried
-      </Text>
-
-      <Text
-        style={{
-          left: "39%",
-          bottom: "29%",
-        }}
-      >
-        Squat 315
-      </Text>
-      <View style={styles.white2Rectangle}>
-
-      <Text style={styles.textInwRectangle}>
-          V.S.
-        </Text>
-
-        <View>
-
-        <Image    source={require("../assets/Me.png")}
-          style={{
-            alignItems: "center",
-            height: 50,
-            width: 50,
-            left: ".7%",
-            top: "-39%",
-            borderRadius: "100%",
-          }}
-        />
-
+      <View style={styles.lists}>
+        <View style={styles.list1}>
+          <SelectList
+            setSelected={(val) => setSelectedFirst(val)}
+            data={data}
+            save="value"
+            style={{ color: "white", top: "10%" }}
+          />
         </View>
-
-        <View>
-        <Image
-          source={require("../assets/dempsey.jpeg")}
-          style={{
-            height: 50,
-            width: 50,
-            left: "85%",
-            top: "-140%",
-            borderRadius: 50,
-          }}
-        />
+        <View style={styles.list2}>
+          <SelectList
+            setSelected={(val) => setSelectedSecond(val)}
+            data={Data}
+            save="value"
+          />
+        </View>
       </View>
 
-        </View>
-
-
-
+      <View style={styles.water}>
+        <Text style={styles.title}>Tab One</Text>
+        <View style={styles.separator} />
+        <Button title="button" onPress={handleModal} />
+        <Modal isVisible={isModalVisible}>
+          <View style={{ flex: 1 }}>
+            <Text>Hello!</Text>
+            <Button title="Hide modal" onPress={handleModal} />
+          </View>
+        </Modal>
+      </View>
     </View>
   );
-}
+};
+
+export default CompScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -125,50 +73,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#645F5F",
     alignItems: "center",
     justifyContent: "center",
-  },
-  jfkd: {
-    alignItems: "center",
-    height: 100,
-    width: 100,
-    left: "38.99%",
-    top: "-220%",
-    borderRadius: "100%",
-  },
-  redRectangle: {
-    width: "50%",
-    backgroundColor: "#00ff00",
-    position: "absolute",
-    top: "9%",
-    right: "25%",
-    borderRadius: 10,
-    padding: 10,
-  },
-  textInRectangle: {
-    color: "black",
-    textAlign: "center",
-    fontSize: "25",
-  },
-  profile: {
-    alignItems: "center",
-    marginVertical: 10,
-    position: "relative",
-    alignContent: "center",
-  },
-  white2Rectangle: {
-    width: "80%",
-    height:"10%",
-    backgroundColor: "black",
-    position: "absolute",
-    top: "60%",
-    right: "10%",
-    borderRadius: 10,
-    padding: 10,
-  },
-  textInwRectangle: {
     color: "white",
-    textAlign:'center',
-    justifyContent:'center',
-    top:'35%',
-    fontSize:25,
   },
+  lists: {
+    top: '5%',
+  },
+  list2: {
+    left: '35%',
+    top: '50%',
+    position: 'absolute',
+    color: 'white'
+  },
+  list1: {
+    top: '50%',
+    position: 'absolute',
+  },
+  water: {
+    position: 'relative '
+  }
 });

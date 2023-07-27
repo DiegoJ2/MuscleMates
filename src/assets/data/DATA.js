@@ -22,7 +22,7 @@ const Data = [
  },
  {
     "id": 2,
-    "name": "Takeo ",
+    "name": "Nikolai ",
     "pfp": require('../Nikolai.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
@@ -32,7 +32,7 @@ const Data = [
  },
  {
     "id": 3,
-    "name": "Takeo ",
+    "name": "Edward ",
     "pfp": require('../Richtofen.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
@@ -42,7 +42,7 @@ const Data = [
  },
  {
     "id": 4,
-    "name": "Takeo ",
+    "name": "Marlton ",
     "pfp": require('../Marlton.jpeg'),
     "age": 13,
     "pronouns": "He/Him",
