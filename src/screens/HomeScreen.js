@@ -8,57 +8,37 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  Button
+  Button,
 } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome"; 
 
 import { Data } from "../assets/data/DATA";
 
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    imageSource: require("../assets/Pp1.png"),
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    imageSource: require("../assets/Pp2.png"),
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    imageSource: require("../assets/Pp3.png"),
-  },
-  {
-    id: "a68afc-c605-48d3-a4f8-fbd91aa97f34",
-    imageSource: require("../assets/Pp4.png"),
-  },
-  {
-    id: "7a0f-3da1-471f-bd96-145571e29d71",
-    imageSource: require("../assets/Pp5.png"),
-  },
-];
-
 const Item = ({ data }) => (
   <View style={styles.home}>
+    <View style={styles.grayrectangle}></View>
     <Image
       source={data.pfp}
       style={{
-        height: 341,
-        width: 275,
-        borderRadius: "50%",
+        height: 378,
+        width: 326,
+        borderRadius: "25%",
         padding: 100,
-        left: "21%",
         border: 20,
-        borderColor: "#77E35C",
         overflow: "hidden",
         borderWidth: 7,
         top: 115,
+        left: "14%",
       }}
     />
     <Text
       style={{
         textAlign: "center",
         fontSize: 24,
-        color: "#FFFDFD",
-        top: 125,
+        color: "white",
+        top: 30,
+        padding: 100,
+        right: "15%",
       }}
     >
       {data.name}
@@ -67,48 +47,38 @@ const Item = ({ data }) => (
     <Text
       style={{
         textAlign: "center",
-        top: 130,
+        top: "-13.8%",
         color: "#FFFDFD",
-
+        fontSize: 24,
+        left: "6%",
       }}
     >
-      {data.age}
+      , {data.age}
     </Text>
+
     <Text
       style={{
-        textAlign: "center",
-        top: 135,
-        color: "#FFFDFD",
+        color: "#3A81FF",
+        fontSize: 15,
+        top: "-14%",
+        left: "19%",
+      }}
+    >
+      {data.location}
+    </Text>
+    
+    <View style={styles.touchableContainer}>
+      <TouchableOpacity style={styles.touchable}>
+        <Icon name="ban" size={24} color="white" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.touchable}>
+        <Icon name="user-plus" size={24} color="white" /> 
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.touchable}>
+        <Icon name="comment" size={24} color="white" /> 
+      </TouchableOpacity>
+    </View>
 
-      }}
-    >
-      {data.bio}
-    </Text>
-    <Text
-      style={{
-        textAlign: "center",
-        top: 135,
-        color: "#FFFDFD",
-
-      }}
-    >
-      {data.experience}
-    </Text>
-    <Text
-      style={{
-        textAlign: "center",
-        padding: 90,
-        top: 80,
-        color: "#FFFDFD",
-      }}
-    >
-     Max Bench:{data.maxBench} Max Deadlift:{data.deadLift}
-    </Text>
-    <TouchableOpacity>
-      <Text>
-        wow
-      </Text>
-    </TouchableOpacity>
   </View>
 );
 
@@ -145,5 +115,34 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 800,
     width: "100%",
+  },
+  grayrectangle: {
+    width: 326,
+    height: 504,
+    backgroundColor: "#2D2B2B",
+    position: "absolute",
+    borderRadius: 10,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+    top: "20%",
+    bottom: 170,
+    left: "14%",
+    right: 20,
+  },
+  touchableContainer: {
+    flexDirection: "row",
+    justifyContent: "center", // Align the buttons horizontally
+    marginTop: 0, // Remove the top margin
+    top:"-12%",
+    color:'#000000'
+  },
+  touchable: {
+    padding: 0,
+    borderRadius: 0,
+    flex: 0,
+    alignItems: "center",
+    marginHorizontal: 25,
   },
 });

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavigationContainer, useRoute } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "react-native-vector-icons";
 import Icon from "react-native-vector-icons/FontAwesome"; 
 
 import HomeScreen from "../screens/HomeScreen";
@@ -11,32 +12,30 @@ import CompScreen from "../screens/CompScreen";
 const Tab = createBottomTabNavigator();
 
 export default function RootNavigation() {
-  const getTabBarIcon = (name) => ({ color, size }) => {
-    const route = useRoute();
-    const iconColor = route.name === "Competitve" ? "red" : "#00ff00";
-    return <Icon name={name} color={iconColor} size={size} />;
+  const getTabBarIcon = (name) => ({ size, color }) => {
+    return <MaterialCommunityIcons name={name} color={color} size={size} />;
   };
 
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{tabBarActiveTintColor: "#00ff00"}}
+    <Tab.Navigator
         tabBarOptions={{
           style: {
             position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
-            backgroundColor: "#645F5F", 
+            backgroundColor: "#DFC5FE", 
             elevation: 0, 
           },
           showLabel: false,
           tabStyle: {
-            backgroundColor: "#645F5F", 
-            borderTopColor: "#645F5F", 
-            borderTopWidth: 2, 
-            activeTintColor: "#00ff00",
-          }, 
+            backgroundColor: "#383838", 
+            borderTopColor: "#383838", 
+            borderTopWidth: 2,
+          },
+          activeTintColor: "#FFFFFF", // Set the active tint color to white
+          inactiveTintColor: "#3A81FF", // Set the inactive tint color to blue (#3A81FF)
         }}
       >
         <Tab.Screen
@@ -47,14 +46,14 @@ export default function RootNavigation() {
             tabBarIcon: getTabBarIcon("home"), 
           }}
         />
-        <Tab.Screen
-          name="Competitve"
-          component={CompScreen}
-          options={{
-            headerShown: false,
-            tabBarIcon: getTabBarIcon("trophy"), 
-          }}
-        />
+<Tab.Screen
+  name="Competitve"
+  component={CompScreen}
+  options={{
+    headerShown: false,
+    tabBarIcon: getTabBarIcon("stadium-variant"), // Use the stadium icon for the "Competitve" tab
+  }}
+/>
         <Tab.Screen
           name="Chat"
           component={ChatScreen}
@@ -68,7 +67,7 @@ export default function RootNavigation() {
           component={ProfileScreen}
           options={{
             headerShown: false,
-            tabBarIcon: getTabBarIcon("user"), 
+            tabBarIcon: getTabBarIcon("account"), // Use the user icon for the "Profile" tab
           }}
         />
       </Tab.Navigator>

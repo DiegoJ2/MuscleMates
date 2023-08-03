@@ -1,23 +1,45 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, TouchableOpacity, Button } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Button,
+} from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import Modal from "react-native-modal";
+import { color } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
 
+const navigation = useNavigation();
+
+const navigateToOtherPage = () => {
+  navigation.navigate("OtherScreen");
+};
+
+
+const DropdownRenderer = ({ item }) => (
+  <View style={styles.itemContainer}>
+    <Image source={item.image} style={styles.itemImage} />
+    <Text style={styles.itemText}>{item.value}</Text>
+  </View>
+);
 
 const CompScreen = () => {
-  const [selectedFirst, setSelectedFirst] = useState(""); 
-  const [selectedSecond, setSelectedSecond] = useState(""); 
-  const [isModalVisible, setIsModalVisible] = React.useState(false);
-const handleModal = () => setIsModalVisible(() => !isModalVisible);
+  const [selectedBadge, setSelectedBadge] = useState("");
+  const [selectedBodyPart, setSelectedBodyPart] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
   const data = [
-    { key: "1", value: "Iron" },
-    { key: "2", value: "Bronze" },
-    { key: "3", value: "Silver" },
-    { key: "4", value: "Gold" },
-    { key: "5", value: "Platinum" },
-    { key: "6", value: "Diamond" },
-    { key: "7", value: "Master" },
+    { key: "1", value: "Iron", image: require("../assets/Iron.jpg") },
+    { key: "2", value: "Bronze", image: require("../assets/bronze.jpeg") },
+    { key: "3", value: "Silver", image: require("../assets/silver.jpeg") },
+    { key: "4", value: "Gold", image: require("../assets/gold.jpeg") },
+    { key: "5", value: "Platinum", image: require("../assets/platinum.jpeg") },
+    { key: "6", value: "Diamond", image: require("../assets/diamond.jpeg") },
+    { key: "7", value: "Master", image: require("../assets/uranium.webp") },
   ];
 
   const Data = [
@@ -32,31 +54,60 @@ const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>THE ARENA</Text>
+
       <View style={styles.lists}>
-        <View style={styles.list1}>
-          <SelectList
-            setSelected={(val) => setSelectedFirst(val)}
-            data={data}
-            save="value"
+        <View
+          style={{
+            JustifyContent: "center",
+            top: "70%",
+            position: "absolute",
+            width: "40%",
+          }}
+        >
+      <SelectList
+            placeholder="BADGES"
             style={{ color: "white", top: "10%" }}
+            setSelected={(val) => setSelectedBadge(val)}
+            data={data}
+            dropdownTextStyles={{ color: "black" }}
+            inputStyles={{ color: "black" }}
+            save="value"
+            renderer={DropdownRenderer} // Use the custom DropdownRenderer component
           />
         </View>
-        <View style={styles.list2}>
+        <View
+          style={{
+            justifyContent: "center",
+            top: "60%",
+            left: "60%",
+            width: "40%",
+            position: "absolute",
+          }}
+        >
           <SelectList
-            setSelected={(val) => setSelectedSecond(val)}
+            placeholder="BODY PARTS"
+            setSelected={(val) => setSelectedBodyPart(val)}
             data={Data}
             save="value"
+            dropdownTextStyles={{ color: "black" }}
+            inputStyles={{ color: "black" }}
           />
         </View>
       </View>
 
-      <View style={styles.water}>
-        <Text style={styles.title}>Tab One</Text>
+      <View style={{ justifyContent: "center", top: "70%" }}>
         <View style={styles.separator} />
-        <Button title="button" onPress={handleModal} />
+        <View style={styles.button}>
+          <Button title="Enter The Arena" onPress={handleModal} color="#FFF" />
+        </View>
         <Modal isVisible={isModalVisible}>
-          <View style={{ flex: 1 }}>
-            <Text>Hello!</Text>
+          <View style={styles.jinx}>
+            <Text>The Arena</Text>
+            <View >
+            <Text>{selectedBadge}</Text>
+            <Text>{selectedBodyPart}</Text>
+            </View>
             <Button title="Hide modal" onPress={handleModal} />
           </View>
         </Modal>
@@ -68,27 +119,29 @@ const handleModal = () => setIsModalVisible(() => !isModalVisible);
 export default CompScreen;
 
 const styles = StyleSheet.create({
+  lists: {
+    top: "10%",
+  },
+
   container: {
     flex: 1,
     backgroundColor: "#645F5F",
-    alignItems: "center",
-    justifyContent: "center",
     color: "white",
   },
-  lists: {
-    top: '5%',
+  text: {
+    textAlign: "center",
+    top: "5%",
+    fontSize: 45,
+    fontWeight: "bold",
+    padding: 10,
   },
-  list2: {
-    left: '35%',
-    top: '50%',
-    position: 'absolute',
-    color: 'white'
+  jinx: {
+    backgroundColor: "#645F5F",
+    color: "white",
+    height: "90%",
+    alignItems:'center',
   },
-  list1: {
-    top: '50%',
-    position: 'absolute',
+  button: {
+    alignContent: "center",
   },
-  water: {
-    position: 'relative '
-  }
 });
