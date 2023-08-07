@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-
 import { Data } from "../assets/data/DATA";
 
 const Item = ({ data }) => (
