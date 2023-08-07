@@ -21,7 +21,7 @@ export default function ProfileScreen() {
             width: 100,
             left: ".7%",
             top: "-190%",
-            borderRadius: "100%",
+
           }}
         />
       </View>
