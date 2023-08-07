@@ -1,98 +1,54 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, StyleSheet, Image, Button, TouchableOpacity } from "react-native";
+import { ArenaData } from '../assets/data/ARENADATA';
+import * as ImagePicker from 'expo-image-picker';
 
-const Triangle = () => {
-  return (
-    <View style={styles.triangle} />
-  );
-};
+export default function ChatScreen({ route }) {
+  const [count, setCount] = useState(60); 
+  const [selectedImage, setSelectedImage] = useState(null);
 
-export default function ChatScreen() {
+  const exerciseId = route.params?.id; // Safely access the id
+  
+  // Find the exercise data or default to an empty object
+  const exerciseData = ArenaData.find(item => item.id === exerciseId) || {};
+
+  useEffect(() => {
+    if (count > 0) {
+      setTimeout(() => setCount(count - 1), 1000);
+    }
+  }, [count]);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+      setSelectedImage(result.uri);
+    }
+  };
+
+  // If there's no exercise data, don't render the component
+  if (!exerciseData.exercise) {
+    return <Text>Head over to the pit menu to select a challenger and come back here to view progress!</Text>;
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.whiteRectangle}>
-        <Text style={styles.textInRectangle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          tincidunt aliquet ante non vulputate. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
-        </Text>
-      </View>
-      <View style={styles.profile}>
-        <Image
-          source={require("../assets/dempsey.jpeg")}
-          style={{
-            height: 50,
-            width: 50,
-            left: ".7%",
-            top: "250%",
-            borderRadius: 50,
-          }}
-        />
-      </View>
-      <View style={styles.greenRectangle}>
-        <Text style={styles.textInRectangle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          tincidunt aliquet ante non vulputate. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
-        </Text>
-      </View>
-      <View  style={styles.profile2}>
-        <Image
-          source={require("../assets/Me.png")}
-          style={{
-            height: 50,
-            width: 50,
-            left: "89%",
-            top: "450%",
-            borderRadius: 50,
-          }}
-        />
-      </View>
-      <View style={styles.keyboard}></View>
-      <View>
-        <Image
-         style={styles.akeyboard}
-        source={require("../assets/IMG_3369.jpeg")}/>
-      </View>
-      <View style={styles.textbar}></View>
-      <Triangle />
-      <View style={styles.white2Rectangle}>
-      <Text style={styles.textInRectangle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          tincidunt aliquet ante non vulputate. 
-        </Text>
-        </View>
-        <View style={styles.profile3}>
-        <Image
-          source={require("../assets/dempsey.jpeg")}
-          style={{
-            height: 50,
-            width: 50,
-            left: ".7%",
-            top: "-40%",
-            borderRadius: 50,
-          }}
-        />
-      </View>
-
-      <View style={styles.green2Rectangle}>
-        <Text style={styles.textInRectangle}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        </Text>
-      </View>
-
-      <View  style={styles.profile2}>
-        <Image
-          source={require("../assets/Me.png")}
-          style={{
-            height: 50,
-            width: 50,
-            left: "89%",
-            top: "-3%",
-            borderRadius: 50,
-          }}
-        />
-      </View>
-
+      <Image style={styles.profile} source={exerciseData.profileImage || exerciseData.rank} /> 
+      <Text style={styles.textInRectangle}>Exercise: {exerciseData.exercise}</Text>
+      
+      <TouchableOpacity style={styles.uploadVideoButton}>
+      {selectedImage && <Image source={{ uri: selectedImage }} style={{ width: 200, height: 200 }} />}
+      <Button title="Upload Image" onPress={pickImage} />
+      </TouchableOpacity>
+      
+      <Button title="Vote" onPress={() => alert("Vote Clicked")} />
+      
+      <Text>Time left: {count} seconds</Text>
     </View>
   );
 }
@@ -101,92 +57,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#645F5F",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  whiteRectangle: {
-    width: "80%",
-    backgroundColor: "white",
-    position: "absolute",
-    top: "9%",
-    right: "10%",
-    borderRadius: 10,
-    padding: 10,
+  profile: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
   },
   textInRectangle: {
     color: "black",
+    marginBottom: 10,
   },
-  profile: {
-    position: "relative",
-  },
-  greenRectangle: {
-    width: "80%",
+  uploadVideoButton: {
+    padding: 10,
     backgroundColor: "#00ff00",
-    position: "absolute",
-    top: "25%",
-    right: "5%",
     borderRadius: 10,
-    padding: 10,
+    marginBottom: 10,
   },
-  profile2: {
-    position: "relative",
-  },
-  keyboard: {
-    width: "100%",
-    height: "30%",
-    backgroundColor: "#5A5A5A",
-    position: "absolute",
-    top: "60%",
-    borderRadius: 0,
-  },
-  akeyboard: {
-    width: "100%",
-    height: 300,
-top: '155%',
-  },
-  textbar: {
-    width: "80%",
-    height:"4.5%",
-    backgroundColor: "#00ff00",
-    position: "absolute",
-    top: "61%",
-    right: "20%",
-    borderRadius: 10,
-    padding: 10,
-  },
-  triangle: {
-    width: 0,
-    height: 0,
-    backgroundColor: "transparent",
-    borderStyle: "solid",
-    borderLeftWidth: 15,
-    borderRightWidth: 15,
-    borderBottomWidth: 30,
-    borderLeftColor: "transparent",
-    borderRightColor: "transparent",
-    borderBottomColor: "#00ff00", 
-    position: "absolute",
-    top:"61%", 
-    right: 15, 
-    transform: [{ rotate: "60deg" }], 
-  },
-  white2Rectangle: {
-    width: "80%",
-    backgroundColor: "white",
-    position: "absolute",
-    top: "40%",
-    right: "10%",
-    borderRadius: 10,
-    padding: 10,
-  },
-  profile3: {
-    position: "relative",
-  },
-  green2Rectangle: {
-    width: "80%",
-    backgroundColor: "#00ff00",
-    position: "absolute",
-    top: "50%",
-    right: "5%",
-    borderRadius: 10,
-    padding: 10,
-  },
+
 });
+

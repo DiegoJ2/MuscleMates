@@ -1,94 +1,77 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, TouchableOpacity, Button } from "react-native";
-import { SelectList } from "react-native-dropdown-select-list";
-import Modal from "react-native-modal";
-
+import { Text, View, StyleSheet, ScrollView } from "react-native";
+import LevelMenuSelector from "../components/levelSelector";
+import ArenaList from "../components/ArenaList";
+import CompMenuSelector from "../components/compMenuSelector";
 
 const CompScreen = () => {
-  const [selectedFirst, setSelectedFirst] = useState(""); 
-  const [selectedSecond, setSelectedSecond] = useState(""); 
-  const [isModalVisible, setIsModalVisible] = React.useState(false);
-const handleModal = () => setIsModalVisible(() => !isModalVisible);
-
-  const data = [
-    { key: "1", value: "Iron" },
-    { key: "2", value: "Bronze" },
-    { key: "3", value: "Silver" },
-    { key: "4", value: "Gold" },
-    { key: "5", value: "Platinum" },
-    { key: "6", value: "Diamond" },
-    { key: "7", value: "Master" },
-  ];
-
-  const Data = [
-    { key: "1", value: "Arms" },
-    { key: "2", value: "Legs" },
-    { key: "3", value: "Back" },
-    { key: "4", value: "Squat" },
-    { key: "5", value: "Chest" },
-    { key: "6", value: "Shoulders" },
-    { key: "7", value: "Full Body" },
-  ];
+  const [parentValue ] = useState();
 
   return (
-    <View style={styles.container}>
-      <View style={styles.lists}>
-        <View style={styles.list1}>
-          <SelectList
-            setSelected={(val) => setSelectedFirst(val)}
-            data={data}
-            save="value"
-            style={{ color: "white", top: "10%" }}
-          />
+    <ScrollView style={styles.scrollContainer}>
+      <View style={styles.container}>
+        <Text style={styles.arenaHeader}>
+          Filter Arena
+        </Text>
+        <View style={styles.levelMenu}>
+          <Text>
+            Select Level:
+          </Text>
+          <LevelMenuSelector />
+          <View style={styles.bronzeLevel}></View>
         </View>
-        <View style={styles.list2}>
-          <SelectList
-            setSelected={(val) => setSelectedSecond(val)}
-            data={Data}
-            save="value"
-          />
+        <View style={styles.typeMenu} value={parentValue}>
+          <Text>
+            Select Type:
+          </Text>
+          <CompMenuSelector />
         </View>
+        <ArenaList />
       </View>
-
-      <View style={styles.water}>
-        <Text style={styles.title}>Tab One</Text>
-        <View style={styles.separator} />
-        <Button title="button" onPress={handleModal} />
-        <Modal isVisible={isModalVisible}>
-          <View style={{ flex: 1 }}>
-            <Text>Hello!</Text>
-            <Button title="Hide modal" onPress={handleModal} />
-          </View>
-        </Modal>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
 export default CompScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  modalContent: {
     flex: 1,
-    backgroundColor: "#645F5F",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "white",
+    backgroundColor: 'white',
+    alignItems: 'center', 
+    justifyContent: 'center',
   },
-  lists: {
-    top: '5%',
+  itemContainer: {
+    width: '90%',      
+    height: '30%',     
+    marginBottom: 20,
+    justifyContent: 'center', 
+    alignItems: 'center',    
   },
-  list2: {
-    left: '35%',
-    top: '50%',
-    position: 'absolute',
-    color: 'white'
+  blueBackground: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    width: '100%',   
+    justifyContent: 'center', 
   },
-  list1: {
-    top: '50%',
-    position: 'absolute',
+  exerciseText: {
+    marginBottom: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
-  water: {
-    position: 'relative '
-  }
+  rankImage: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
+  },
+  challengeButton: {
+    marginTop: 10,
+    padding: 5,
+    backgroundColor: 'grey',
+    borderRadius: 5,
+    alignItems: 'center',
+  },
 });
