@@ -10,80 +10,68 @@ import {
   TouchableOpacity,
   Button,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome"; 
+import Icon from "react-native-vector-icons/FontAwesome";
+
 
 import { Data } from "../assets/data/DATA";
 
 const Item = ({ data }) => (
+  // Container for the whole Page
   <View style={styles.home}>
-    <View style={styles.grayrectangle}></View>
-    <Image
-      source={data.pfp}
-      style={{
-        height: 378,
-        width: 326,
-        borderRadius: "25%",
-        padding: 100,
-        border: 20,
-        overflow: "hidden",
-        borderWidth: 7,
-        top: 115,
-        left: "14%",
-      }}
-    />
-    <Text
-      style={{
-        textAlign: "center",
-        fontSize: 24,
-        color: "white",
-        top: 30,
-        padding: 100,
-        right: "15%",
-      }}
-    >
-      {data.name}
-    </Text>
-
-    <Text
-      style={{
-        textAlign: "center",
-        top: "-13.8%",
-        color: "#FFFDFD",
-        fontSize: 24,
-        left: "6%",
-      }}
-    >
-      , {data.age}
-    </Text>
-
-    <Text
-      style={{
-        color: "#3A81FF",
-        fontSize: 15,
-        top: "-14%",
-        left: "19%",
-      }}
-    >
-      {data.location}
-    </Text>
-    
-    <View style={styles.touchableContainer}>
-      <TouchableOpacity style={styles.touchable}>
-        <Icon name="ban" size={24} color="white" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable}>
-        <Icon name="user-plus" size={24} color="white" /> 
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable}>
-        <Icon name="comment" size={24} color="white" /> 
-      </TouchableOpacity>
+    <Image src="../assets/logo.png" />
+    {/* Container for the Feed */}
+    <View style={styles.homePageFeed1}>
+      {/* Container for Images */}
+      <View style={styles.homePageImages}>
+        <Image
+          source={data.pfp}
+          style={styles.homePageImages}
+        />
+      </View>
+      {/* Container for the Text */}
+      <View style={styles.homePageText}>
+        <Text
+          style={styles.homePageName}
+        >
+          {data.name}, {data.age}
+        </Text>
+        <Text
+          style={styles.homePageCity}
+        >
+          {data.city}, {data.state}
+        </Text>
+        <Text
+          style={styles.homePageGoal}
+        >
+          <Text style={styles.GoalArea}>
+            Goal:
+          </Text>
+          {data.goal}
+        </Text>
+        <View style={styles.touchableContainer}>
+          <TouchableOpacity style={styles.touchable}>
+            <Icon name="ban" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchable}>
+            <Icon name="user-plus" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchable}>
+            <Icon name="comment" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
-
   </View>
 );
 
+
+
 export default function HomeScreen() {
+
+
+
   return (
+
     <SafeAreaView style={styles.container}>
       <FlatList
         data={Data}
@@ -96,53 +84,67 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: "#535050",
+
   },
   home: {
     flex: 1,
-    color: "white",
     textAlign: "center",
-  },
-  item: {
-    backgroundColor: "#ffffff",
-    padding: 0,
-    flexDirection: "row",
+    backgroundColor: "#645F5F",
     alignItems: "center",
   },
-  image: {
-    flex: 1,
-    height: 800,
+  homePageText: {
+    backgroundColor: "#383838",
+    height: 400,
     width: "100%",
+    flex: 1,
+    borderBottomLeftRadius: "50%",
+    borderBottomRightRadius: "50%",
+
   },
-  grayrectangle: {
-    width: 326,
-    height: 504,
-    backgroundColor: "#2D2B2B",
-    position: "absolute",
-    borderRadius: 10,
-    padding: 10,
+  homePageFeed1: {
+    width: "80%",
+    maxWidth: "80%",
     justifyContent: "center",
     alignItems: "center",
-    alignContent: "center",
-    top: "20%",
-    bottom: 170,
-    left: "14%",
-    right: 20,
+    marginBottom: "15%",
+    marginTop: "15%",
   },
-  touchableContainer: {
-    flexDirection: "row",
-    justifyContent: "center", // Align the buttons horizontally
-    marginTop: 0, // Remove the top margin
-    top:"-12%",
-    color:'#000000'
+  homePageImages: {
+    display: "inline-block",
+    width: "100%",
+    height: 500,
+    alignItems: "center",
+    borderTopLeftRadius: "50%",
+    borderTopRightRadius: "50%",
+  },
+  homePageName: {
+    fontWeight: "bold",
+    color: "#FFFFFF",
+    fontSize: "35",
+    marginLeft: "5%",
+    marginTop: "10%",
+    marginBotom: "30%",
+
+  },
+  homePageCity: {
+    color: "#0760FF",
+    marginLeft: "6%",
+    marginBottom: "5%",
+    fontSize: "35",
+    fontWeight: "bold",
+
+  },
+  homePageGoal: {
+    fontSize: "35",
+    fontWeight: "bold",
+    overflow: "hidden"
+  },
+  GoalArea: {
+    color: "#3A81FF",
+    fontSize: "35",
+    fontWeight: "bold",
   },
   touchable: {
-    padding: 0,
-    borderRadius: 0,
-    flex: 0,
-    alignItems: "center",
-    marginHorizontal: 25,
-  },
+
+  }
 });
