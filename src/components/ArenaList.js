@@ -13,7 +13,7 @@ const ArenaList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Button title="Open Modal" onPress={handleModal} />
+      <Button title="Done" onPress={handleModal} color="white" />
       {isModalVisible && (
         <PitModal
           data={ArenaData} // Pass all the data to the modal
@@ -28,6 +28,13 @@ const ArenaList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top:400,
+    marginLeft: "auto",
+    marginRight: "auto",
+    color:'white',
+    backgroundColor:'#0760FF',
+    width:'25%',
+borderRadius:'50%',
   },
 });
 

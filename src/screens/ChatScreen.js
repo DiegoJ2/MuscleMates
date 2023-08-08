@@ -4,7 +4,7 @@ import { ArenaData } from '../assets/data/ARENADATA';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function ChatScreen({ route }) {
-  const [count, setCount] = useState(60); 
+  const [count, setCount] = useState(40); 
   const [selectedImage, setSelectedImage] = useState(null);
 
   const exerciseId = route.params?.id; // Safely access the id
@@ -43,12 +43,12 @@ export default function ChatScreen({ route }) {
       
       <TouchableOpacity style={styles.uploadVideoButton}>
       {selectedImage && <Image source={{ uri: selectedImage }} style={{ width: 200, height: 200 }} />}
-      <Button title="Upload Image" onPress={pickImage} />
+      <Button title="Upload Video" onPress={pickImage} />
       </TouchableOpacity>
       
-      <Button title="Vote" onPress={() => alert("Vote Clicked")} />
+      {/* <Button title="Vote" onPress={() => alert("Vote Clicked")} /> */}
       
-      <Text>Time left: {count} seconds</Text>
+      <Text>Time left: {count} weeks</Text>
     </View>
   );
 }
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   uploadVideoButton: {
     padding: 10,
-    backgroundColor: "#00ff00",
+    backgroundColor: "#645F5F",
     borderRadius: 10,
     marginBottom: 10,
   },

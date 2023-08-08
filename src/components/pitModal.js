@@ -38,6 +38,8 @@ const PitModal = ({ data, isModalVisible, handleModal }) => {
                       <Text>Challenge</Text>
                     </TouchableOpacity>
                   </View>
+                  <Image source={item.pfp} style={styles.pfp}/>
+
                 </View>
               </View>
             )}
@@ -90,6 +92,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
   },
+  pfp:{
+    width:80,
+    height: 90,
+    marginLeft:30
+  }
 });
 
 export default PitModal;

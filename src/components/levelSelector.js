@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
       margin: "auto",
       width: "90%",
       maxWidth: "5%",
+      flex:1,
+      flexDirection:'row'
     },
     checkMenuBox: {
   

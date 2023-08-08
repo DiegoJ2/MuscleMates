@@ -22,55 +22,44 @@ const Item = ({ data }) => (
     <View style={styles.homePageFeed1}>
       {/* Container for Images */}
       <View style={styles.homePageImages}>
-        <Image
-          source={data.pfp}
-          style={styles.homePageImages}
-        />
+        <Image source={data.pfp} style={styles.homePageImages} />
       </View>
       {/* Container for the Text */}
       <View style={styles.homePageText}>
-        <Text
-          style={styles.homePageName}
-        >
+        <Text style={styles.homePageName}>
           {data.name}, {data.age}
         </Text>
-        <Text
-          style={styles.homePageCity}
-        >
+        <Text style={styles.homePageCity}>
           {data.city}, {data.state}
         </Text>
-        <Text
-          style={styles.homePageGoal}
-        >
-          <Text style={styles.GoalArea}>
-            Goal:
-          </Text>
+        <Text style={styles.homePageGoal}>
+          <Text style={styles.GoalArea}>Goal:</Text>
           {data.goal}
         </Text>
-        <View style={styles.touchableContainer}>
-          <TouchableOpacity style={styles.touchable}>
-            <Icon name="ban" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touchable}>
-            <Icon name="user-plus" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touchable}>
-            <Icon name="comment" size={24} color="white" />
-          </TouchableOpacity>
+        <View style={styles.Buttons}>
+          <View>
+            <TouchableOpacity style={styles.touchable1}>
+              <Icon name="ban" size={40} color="white" />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity style={styles.touchable2}>
+              <Icon name="user-plus" size={40} color="white" />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity style={styles.touchable3}>
+              <Icon name="comment" size={40} color="white" />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
   </View>
 );
 
-
-
 export default function HomeScreen() {
-
-
-
   return (
-
     <SafeAreaView style={styles.container}>
       <FlatList
         data={Data}
@@ -82,9 +71,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
+  container: {},
   home: {
     flex: 1,
     textAlign: "center",
@@ -98,7 +85,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderBottomLeftRadius: "50%",
     borderBottomRightRadius: "50%",
-
   },
   homePageFeed1: {
     width: "80%",
@@ -123,27 +109,43 @@ const styles = StyleSheet.create({
     marginLeft: "5%",
     marginTop: "10%",
     marginBotom: "30%",
-
   },
   homePageCity: {
     color: "#0760FF",
     marginLeft: "6%",
     marginBottom: "5%",
-    fontSize: "35",
+    fontSize: "19",
     fontWeight: "bold",
-
   },
   homePageGoal: {
-    fontSize: "35",
+    fontSize: "24",
     fontWeight: "bold",
-    overflow: "hidden"
+    overflow: "hidden",
+    color:'white',
+    marginLeft:15
   },
   GoalArea: {
     color: "#3A81FF",
-    fontSize: "35",
+    fontSize: "24",
     fontWeight: "bold",
   },
-  touchable: {
-
-  }
+  Buttons: {
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'center',
+marginLeft:10,
+marignRight:45,
+top:25
+  },
+  touchable1: {
+    alignItems: "center",
+    paddingRight:90
+  },
+  touchable2: {
+    alignItems: "center",
+    paddingRight:90
+  },
+  touchable3: {
+    alignItems: "center",
+  },
 });

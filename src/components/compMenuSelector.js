@@ -13,7 +13,7 @@ const CompMenuSelector = () => {
     <View style={styles.CheckMenu}>
     {/* Chest Menu Option */}
     <View style={styles.silverBadgeMenu}>
-      <Text>
+      <Text style={styles.texts}>
         Chest
       </Text>
       <RadioButton
@@ -27,7 +27,7 @@ const CompMenuSelector = () => {
 
     {/* arms Menu Option */}
     <View style={styles.goldBadgeMenu}>
-      <Text>
+      <Text style={styles.texts}>
         Arms
       </Text>
       <RadioButton
@@ -41,7 +41,7 @@ const CompMenuSelector = () => {
 
     {/* Back Menu Option */}
     <View style={styles.diamondBadgeMenu}>
-      <Text>
+      <Text style={styles.texts}>
         Back
       </Text>
       <RadioButton
@@ -55,7 +55,7 @@ const CompMenuSelector = () => {
 
     {/* Leg Menu Option */}
     <View style={styles.bronzeBadgeMenu}>
-      <Text>
+      <Text style={styles.texts}>
         Legs
       </Text>
       <RadioButton
@@ -73,16 +73,6 @@ const CompMenuSelector = () => {
 export default CompMenuSelector;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#645F5F",
-    alignItems: "center",
-    color: "white",
-    maxHeight: "100%",
-    maxWidth: "100%",
-    width: "100%",
-    margin: "auto",
-  },
   arenaHeader: {
     marginTop: "5%",
   },
@@ -95,9 +85,15 @@ const styles = StyleSheet.create({
     maxHeight: "100%",
     margin: "auto",
     width: "90%",
-    maxWidth: "5%",
+    maxWidth: "100%",
+    flex:1,
+    flexDirection: 'row',
+    marginLeft:45
   },
-  checkMenuBox: {},
+  checkMenuBox: {
+ marginRight:"5%"
+    
+  },
   typeMenu: {
     marginTop: "5%",
     margin: "auto",
@@ -106,18 +102,25 @@ const styles = StyleSheet.create({
   bronzeBadgeMenu: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginRight: 10,
+
   },
   silverBadgeMenu: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginRight: 10,
   },
   goldBadgeMenu: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginRight: 10,
+
   },
   diamondBadgeMenu: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginRight: 10,
+
   },
   bronzeLevel: {},
   modalContent: {
@@ -130,4 +133,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
   },
+texts:{
+color:'white'
+}
 });
