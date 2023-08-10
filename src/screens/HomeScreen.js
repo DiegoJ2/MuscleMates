@@ -33,23 +33,23 @@ const Item = ({ data }) => (
           {data.city}, {data.state}
         </Text>
         <Text style={styles.homePageGoal}>
-          <Text style={styles.GoalArea}>Goal:</Text>
+          <Text style={styles.GoalArea}>Goal: </Text>
           {data.goal}
         </Text>
         <View style={styles.Buttons}>
           <View>
             <TouchableOpacity style={styles.touchable1}>
-              <Icon name="ban" size={40} color="white" />
+              <Icon name="ban" size={30} color="white" />
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity style={styles.touchable2}>
-              <Icon name="user-plus" size={40} color="white" />
+              <Icon name="user-plus" size={30} color="white" />
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity style={styles.touchable3}>
-              <Icon name="comment" size={40} color="white" />
+              <Icon name="comment" size={30} color="white" />
             </TouchableOpacity>
           </View>
         </View>
@@ -71,15 +71,18 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+
+  },
   home: {
     textAlign: "center",
     backgroundColor: "#645F5F",
     alignItems: "center",
+    justifyContent: "center"
   },
   homePageText: {
     backgroundColor: "#383838",
-    height: 400,
+    height: 250,
     width: "100%",
     flex: 1,
     borderBottomLeftRadius: "50%",
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
   homePageImages: {
     width: "100%",
     resizeMode: 'fit',
-    // height: 500,
+    height: 300,
     alignItems: "center",
     borderTopLeftRadius: "50%",
     borderTopRightRadius: "50%",
@@ -104,20 +107,19 @@ const styles = StyleSheet.create({
   homePageName: {
     fontWeight: "bold",
     color: "#FFFFFF",
-    fontSize: "35",
+    fontSize: 35,
     marginLeft: "5%",
     marginTop: "10%",
-    marginBotom: "30%",
   },
   homePageCity: {
     color: "#0760FF",
     marginLeft: "6%",
     marginBottom: "5%",
-    fontSize: "19",
+    fontSize: 19,
     fontWeight: "bold",
   },
   homePageGoal: {
-    fontSize: "24",
+    fontSize: 24,
     fontWeight: "bold",
     overflow: "hidden",
     color: "white",
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
   },
   GoalArea: {
     color: "#3A81FF",
-    fontSize: "24",
+    fontSize: 24,
     fontWeight: "bold",
   },
   Buttons: {
@@ -138,11 +140,11 @@ const styles = StyleSheet.create({
   },
   touchable1: {
     alignItems: "center",
-    paddingRight: 90,
+    paddingRight: 60,
   },
   touchable2: {
     alignItems: "center",
-    paddingRight: 90,
+    paddingRight: 60,
   },
   touchable3: {
     alignItems: "center",

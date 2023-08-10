@@ -17,6 +17,7 @@ const PitModal = ({ data, isModalVisible, handleModal }) => {
   return (
     <Modal isVisible={isModalVisible} onPress={handleModal} animationIn="fadeInRightBig">
       <View style={styles.modalContent}>
+        <Image source={require("../assets/logo.png")} style={{marginTop: 200}}/>
         <View style={styles.ModalContentContainer}>
           <Button title="Exit Arena" onPress={handleModal} />
           <FlatList
@@ -62,9 +63,10 @@ const styles = StyleSheet.create({
     marginTop: "10%",
     maxWidth: "100%",
     width: "100%",
+    alignItems: "center"
   },
   itemContainer: {
-    width: '90%',
+    width: '100%',
     marginBottom: 20,
 
   },
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     padding: 10,
     borderRadius: 20,
+    width: "100%"
   },
   exerciseText: {
     marginBottom: 10,
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
   rankImage: {
     width: 50,
     height: 50,
-    marginRight: 10,
+    marginRight: 20,
   },
   challengeButton: {
     marginTop: 10,
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
   pfp:{
     width:80,
     height: 90,
-    marginLeft:30
+    marginLeft:20
   }
 });
 

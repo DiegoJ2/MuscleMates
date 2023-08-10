@@ -100,25 +100,25 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   bronzeBadgeMenu: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+        alignItems: 'center',
     marginRight: 10,
 
   },
   silverBadgeMenu: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+        alignItems: 'center',
     marginRight: 10,
   },
   goldBadgeMenu: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+        alignItems: 'center',
     marginRight: 10,
 
   },
   diamondBadgeMenu: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+        alignItems: 'center',
     marginRight: 10,
 
   },
@@ -134,6 +134,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 texts:{
-color:'white'
+color:'white',
+marginBottom: 20,
+fontSize: 30,
 }
 });

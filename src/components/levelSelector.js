@@ -87,12 +87,14 @@ const styles = StyleSheet.create({
       maxHeight: "100%",
       margin: "auto",
       width: "90%",
-      maxWidth: "5%",
+      maxWidth: "100%",
       flex:1,
-      flexDirection:'row'
+      flexDirection: "row",
+
     },
     checkMenuBox: {
-  
+        maxWidth: 5,
+        width: 10
     },
     typeMenu: {
       marginTop: "5%",
@@ -112,4 +114,7 @@ const styles = StyleSheet.create({
       height: "100%",
       width: "100%",
     },
+    bronzeBadgeMenu: {
+      marginRight:15,
+    }
 });

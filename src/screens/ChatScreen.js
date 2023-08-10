@@ -69,12 +69,14 @@ const styles = StyleSheet.create({
   textInRectangle: {
     color: "black",
     marginBottom: 10,
+    
   },
   uploadVideoButton: {
     padding: 10,
     backgroundColor: "#645F5F",
     borderRadius: 10,
     marginBottom: 10,
+    
   },
 
 });

@@ -56,26 +56,21 @@ export default function RootNavigation() {
           name="Competitve"
           component={CompScreen}
           options={{
-            headerShown: false,
-            tabBarIcon: getTabBarIcon("stadium-variant"), // Use the stadium icon for the "Competitve" tab
+            headerTitle: () => <Image source={require('../assets/logo.png')}/>,
+            tabBarIcon: getTabBarIcon("stadium-variant"), 
+            headerShown: false
           }}
         />
         <Tab.Screen
           name="Chat"
           component={ChatScreen}
           options={{
-            headerShown: false,
+            headerTitle: () => <Image source={require('../assets/logo.png')}/>,
+            headerStyle: { backgroundColor: '#645F5F',  shadowColor: 'transparent', height: 135},
             tabBarIcon: getTabBarIcon("comment"),
           }}
         />
-        <Tab.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{
-            headerShown: false,
-            tabBarIcon: getTabBarIcon("account"), // Use the user icon for the "Profile" tab
-          }}
-        />
+
       </Tab.Navigator>
     </NavigationContainer>
   );

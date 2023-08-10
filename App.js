@@ -1,18 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
 import RootNavigation from './src/navigation/RootNavigation';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+
   return (
-      <RootNavigation />
+    <RootNavigation />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

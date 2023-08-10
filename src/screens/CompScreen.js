@@ -3,19 +3,16 @@ import { Text, View, StyleSheet, ScrollView } from "react-native";
 import LevelMenuSelector from "../components/levelSelector";
 import ArenaList from "../components/ArenaList";
 import CompMenuSelector from "../components/compMenuSelector";
-import { useFonts } from "expo-font";
 
 const CompScreen = () => {
-  const [fontLoaded] = useFonts({
-    Angkor: require("../assets/fonts/Angkor/Angkor-Regular.ttf"),
-  });
+
   const [parentValue] = useState();
 
   return (
     <ScrollView style={styles.scrollContainer}>
       <View style={styles.container}>
         <Text
-          style={[styles.arenaHeader, fontLoaded && { fontFamily: "Angkor" }]}
+          style={[styles.arenaHeader, {}]}
         >
           Filter Pit
         </Text>
@@ -81,17 +78,17 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 40,
     top: 45,
-    fontWeight: 900,
-    fontFamily: "Angkor",
+    fontWeight: 900
   },
   typeMenu: {
     textAlign: "center",
     top: 150,
   },
   levelMenu: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     top: 100,
+    left:0,
   },
   scrollContainer: {
     backgroundColor: "#535050",
@@ -100,6 +97,5 @@ const styles = StyleSheet.create({
   texts: {
     color: "white",
     fontSize: 20,
-    fontFamily: "Angkor",
   },
 });
