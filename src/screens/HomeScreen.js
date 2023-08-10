@@ -9,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   Button,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -17,7 +18,6 @@ import { Data } from "../assets/data/DATA";
 const Item = ({ data }) => (
   // Container for the whole Page
   <View style={styles.home}>
-    <Image src="../assets/logo.png" />
     {/* Container for the Feed */}
     <View style={styles.homePageFeed1}>
       {/* Container for Images */}
@@ -60,20 +60,19 @@ const Item = ({ data }) => (
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <FlatList
         data={Data}
         renderItem={({ item }) => <Item data={item} />}
         keyExtractor={(item) => item.id}
       />
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {},
   home: {
-    flex: 1,
     textAlign: "center",
     backgroundColor: "#645F5F",
     alignItems: "center",
@@ -95,9 +94,9 @@ const styles = StyleSheet.create({
     marginTop: "15%",
   },
   homePageImages: {
-    display: "inline-block",
     width: "100%",
-    height: 500,
+    resizeMode: 'fit',
+    // height: 500,
     alignItems: "center",
     borderTopLeftRadius: "50%",
     borderTopRightRadius: "50%",
@@ -121,8 +120,8 @@ const styles = StyleSheet.create({
     fontSize: "24",
     fontWeight: "bold",
     overflow: "hidden",
-    color:'white',
-    marginLeft:15
+    color: "white",
+    marginLeft: 15,
   },
   GoalArea: {
     color: "#3A81FF",
@@ -130,20 +129,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   Buttons: {
-    flex:1,
-    flexDirection:'row',
-    justifyContent:'center',
-marginLeft:10,
-marignRight:45,
-top:25
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginLeft: 10,
+    marignRight: 45,
+    top: 25,
   },
   touchable1: {
     alignItems: "center",
-    paddingRight:90
+    paddingRight: 90,
   },
   touchable2: {
     alignItems: "center",
-    paddingRight:90
+    paddingRight: 90,
   },
   touchable3: {
     alignItems: "center",
